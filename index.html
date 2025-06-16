@@ -46,33 +46,39 @@
 
   <hr>
 
-  <h2>🛠️ Data Preparation in Excel</h2>
+<h2>🛠️ Data Preparation in Excel</h2>
 
-  <p><strong>1. Importing Data:</strong><br>
-  The raw dataset was reviewed in Excel to understand its structure, identify irrelevant columns, and set appropriate data types—especially date formats.</p>
+<p><strong>1. Importing Data:</strong><br>
+The raw dataset was reviewed in Excel to understand its structure, identify irrelevant columns, and set appropriate data types—especially date formats.</p>
 
-  <p><strong>2. Data Cleaning:</strong></p>
-  <ul>
-    <li><strong>Removing duplicates:</strong> No duplicates were found.</li>
-    <li><strong>Standardizing data:</strong> 
-      <ul>
-        <li>Trimmed extra spaces using <code>=TRIM</code>.</li>
-        <li>Formatted capitalization using <code>=PROPER</code> or <code>=UPPER</code>.</li>
-        <li>Checked consistency in names using filters.</li>
-      </ul>
-    </li>
-    <li><strong>Handling missing values:</strong>
-      <ul>
-        <li>Used <code>XLOOKUP</code> or filters to handle missing data based on context.</li>
-        <li>Filled missing Grades using <em>Sub_Grade</em>.</li>
-        <li>Estimated missing interest rates using similar records.</li>
-      </ul>
-    </li>
-    <li><strong>Removing irrelevant columns/rows</strong> to simplify the dataset.</li>
-    <li><strong>Adding new columns:</strong> Created a loan quality label:
-      <pre><code>=IF(OR([@[Loan_Status]]="Fully Paid", [@[Loan_Status]]="Current"), "Good Loan", IF([@[Loan_Status]]="Charged Off", "Bad Loan", ""))</code></pre>
-    </li>
-  </ul>
+<p><strong>2. Data Cleaning:</strong></p>
+
+<p><strong>Steps included:</strong></p>
+<ol>
+  <li><strong>Removing duplicates:</strong> No duplicates were found.</li>
+  
+  <li><strong>Standardizing data:</strong>
+    <ul>
+      <li>Minor standardization like trimming spaces (<code>=TRIM</code>) or correcting capitalizations (<code>=PROPER</code> or <code>=UPPER</code>).</li>
+      <li>Filters were used to check consistency in names and terms.</li>
+    </ul>
+  </li>
+  
+  <li><strong>Handling missing values:</strong>
+    <ul>
+      <li>Used <code>XLOOKUP</code> or manual filters to address missing data.</li>
+      <li>Filled missing Grades using the <em>Sub_Grade</em> column.</li>
+      <li>Estimated missing Interest Rates from similar rows.</li>
+    </ul>
+  </li>
+  
+  <li><strong>Removing irrelevant Columns/Rows:</strong> Columns not relevant to the analysis were removed to simplify the dataset.</li>
+  
+  <li><strong>Adding new columns:</strong>
+    <p>Created a Loan Quality Label based on the loan status:</p>
+    <pre><code>=IF(OR([@[Loan_Status]]="Fully Paid", [@[Loan_Status]]="Current"), "Good Loan", IF([@[Loan_Status]]="Charged Off", "Bad Loan", ""))</code></pre>
+  </li>
+</ol>
 
   <hr>
 
