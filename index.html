@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Excel Project – Bank Loan Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #2a2a2a;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    .center {
+      text-align: center;
+    }
+    hr {
+      margin: 40px 0;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    ul {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📊 Executive Bank Loan Applications Dashboard in Excel</h1>
+  <p>This project focuses on preparing, cleaning, and analyzing bank financial data, followed by building an interactive dashboard in Excel. Key business insights are also highlighted.</p>
+  
+  <div class="center">
+    <img src="Images/Bank_Loan_Dashboard.png" alt="Bank Loan Dashboard" width="700">
+  </div>
+
+  <hr>
+
+  <h2>🛠️ Data Preparation in Excel</h2>
+
+  <p><strong>1. Importing Data:</strong><br>
+  The raw dataset was reviewed in Excel to understand its structure, identify irrelevant columns, and set appropriate data types—especially date formats.</p>
+
+  <p><strong>2. Data Cleaning:</strong></p>
+  <ul>
+    <li><strong>Removing duplicates:</strong> No duplicates were found.</li>
+    <li><strong>Standardizing data:</strong> 
+      <ul>
+        <li>Trimmed extra spaces using <code>=TRIM</code>.</li>
+        <li>Formatted capitalization using <code>=PROPER</code> or <code>=UPPER</code>.</li>
+        <li>Checked consistency in names using filters.</li>
+      </ul>
+    </li>
+    <li><strong>Handling missing values:</strong>
+      <ul>
+        <li>Used <code>XLOOKUP</code> or filters to handle missing data based on context.</li>
+        <li>Filled missing Grades using <em>Sub_Grade</em>.</li>
+        <li>Estimated missing interest rates using similar records.</li>
+      </ul>
+    </li>
+    <li><strong>Removing irrelevant columns/rows</strong> to simplify the dataset.</li>
+    <li><strong>Adding new columns:</strong> Created a loan quality label:
+      <pre><code>=IF(OR([@[Loan_Status]]="Fully Paid", [@[Loan_Status]]="Current"), "Good Loan", IF([@[Loan_Status]]="Charged Off", "Bad Loan", ""))</code></pre>
+    </li>
+  </ul>
+
+  <hr>
+
+  <h2>📊 Pivot Tables for Key Metrics</h2>
+  <p>Before building the dashboard, key performance indicators (KPIs) were defined and summarized using PivotTables with proper formatting (%, currency, thousands/millions).</p>
+  <p><strong>Key Metrics include:</strong> Total Loan Amount, Funded Amount, Amount Received, Average Interest Rate, Debt-to-Income Ratio (Good vs. Bad loans), Loan Counts by Employee, State, and Purpose, and Monthly Trends.</p>
+
+  <div class="center">
+    <img src="Images/Pivot_tables.png" alt="Pivot tables" width="700">
+  </div>
+
+  <hr>
+
+  <h2>📈 Dashboard Development</h2>
+
+  <p><strong>Design Principles:</strong></p>
+  <ul>
+    <li>Focused on executive-level KPIs</li>
+    <li>Clean and intuitive layout</li>
+    <li>Interactive filters for data exploration</li>
+  </ul>
+
+  <p><strong>Visual Elements:</strong></p>
+  <ul>
+    <li>KPI Cards: Total Loan, Funded Amount, Amount Received, Avg. Interest Rate</li>
+    <li>Doughnut Charts: Good vs. Bad Loans, Loan Terms</li>
+    <li>Bar Charts: Loans by Employee Experience, Loan Purpose</li>
+    <li>Line Charts: Monthly Trends</li>
+    <li>Map Charts: Geographic Loan Distribution</li>
+    <li>Filters: Risk Grade, Loan Purpose</li>
+  </ul>
+
+  <div class="center">
+    <img src="Images/Bank_Loan_Dashboard.png" alt="Bank Loan Dashboard" width="700">
+  </div>
+
+  <hr>
+
+  <h2>✅ Key Insights from the Dashboard</h2>
+
+  <ul>
+    <li>The majority of loans are <strong>Good</strong>, with only <strong>16% charged off</strong>. Though the causes for charge-offs are unknown, this is an area worth investigating.</li>
+    <li><strong>28% of high-risk grade loans (E, F, G)</strong> were charged off, compared to only <strong>13% for low-risk grades (A, B, C)</strong>.</li>
+    <li><strong>75% of all loans (10.6k out of 14.4k)</strong> belong to low-risk categories.</li>
+  </ul>
+
+  <div class="center">
+    <img src="Images/Risky_loans.png" alt="Risky loans" width="450">
+  </div>
+
+  <ul>
+    <li>Loan issuance increases throughout the year, peaking toward the end.</li>
+    <li>Most loans are concentrated in <strong>California, Texas, Florida,</strong> and <strong>New York</strong>.</li>
+    <li>The majority of loans are for <strong>debt consolidation</strong>, followed by <strong>credit card repayment</strong>.</li>
+  </ul>
+
+  <h3>🔍 Opportunities for Further Analysis</h3>
+  <ul>
+    <li>Trend analysis on interest rates over time</li>
+    <li>Correlation between interest rates and risk grades</li>
+    <li>Performance evaluation by employee experience</li>
+    <li>Relationships between loan amount, interest rate, grade, and repayment status</li>
+    <li>Identifying factors contributing to charged-off loans</li>
+  </ul>
+
+</body>
+</html>
