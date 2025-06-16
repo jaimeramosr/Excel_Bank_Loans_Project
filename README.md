@@ -12,7 +12,7 @@
 <i>1. Importing data </i> <br>
 The raw dataset was reviewed in Excel to understand its structure, identify irrelevant columns, and set appropriate data types, specially the correct date format.
 
-
+<p></p>
 <i>2. Data Cleaning</i> <br>
 
 **Steps included:**
