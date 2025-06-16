@@ -12,6 +12,7 @@
 <i>1. Importing data </i> <br>
 The raw dataset was reviewed in Excel to understand its structure, identify irrelevant columns, and set appropriate data types, specially the correct date format.
 
+
 <i>2. Data Cleaning</i> <br>
 
 **Steps included:**
@@ -36,7 +37,6 @@ The raw dataset was reviewed in Excel to understand its structure, identify irre
 
 5. **Adding new colums**
 - Created a Loan Quality Label based on the loan status:
-
 =IF(OR([@[Loan_Status]]="Fully Paid", [@[Loan_Status]]="Current"), "Good Loan", IF([@[Loan_Status]]="Charged Off", "Bad Loan", ""))
 
 ---
@@ -77,9 +77,11 @@ Visuals include:
 Notably, 28% of loans in high-risk grades (E, F, G) were charged off, compared to just 13% in low-risk grades (A, B, C). Furthermore, 75% of all loans issued (10.6k out of 14.4k) fall into these low-risk categories.
 <p align="center">
 <img src="Images/Risky_loans.png" alt="Risky loans" width="450"></p>
+
 - The number of loans issued increases progressively throughout the year, peaking in the final months.
 - Loan issuance is highly concentrated in a few key states, with California, Texas, Florida, and New York leading in volume.
 - Most loans are issued for debt consolidation, followed by those for credit card repayment.
+
 
 🔍 <i>Opportunities for Further Analysis</i> <br>
 
